@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     //A new observable object creation using built in function interval which emits incremental number at specified interval(1sec)
-    const myNumbers = Observable.interval(1000);
+    const myNumbers = Observable.interval(1000)
+      .map((data: number) => { return data * 2; });
 
     //and observing the observable object (myNumbers) by subscribing to it and receiving emitted data.
     this.numberObsSubscription = myNumbers.subscribe((number: number) => {
